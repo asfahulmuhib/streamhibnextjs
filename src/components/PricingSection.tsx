@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Play } from "lucide-react";
-import { useLanguage } from '@/context/LanguageContext';
+
+// The LanguageContext dependency has been removed.
+// The language state is now managed within this component.
 
 const PricingSection: React.FC = () => {
-  const { language } = useLanguage();
+  // State for managing the current language ('id' or 'en')
+  const [language, setLanguage] = useState<'id' | 'en'>('id');
 
   const translations = {
     id: {
@@ -107,8 +110,11 @@ const PricingSection: React.FC = () => {
     pro: "https://www.paypal.com/ncp/payment/PEGPEHJ6TK7EA",
     business: "https://www.paypal.com/ncp/payment/QLCHTNYT3R2U6",
   };
+  
+  // Define a specific type for plan keys to satisfy TypeScript
+  type PlanType = keyof typeof subscriptionLinks;
 
-  const handleSubscribeClick = (type: string) => {
+  const handleSubscribeClick = (type: PlanType) => {
     const link = language === 'en' ? paypalLinks[type] : subscriptionLinks[type];
     window.open(link, '_blank', 'noopener,noreferrer');
   };
