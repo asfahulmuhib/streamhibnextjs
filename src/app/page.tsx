@@ -14,7 +14,8 @@ import { Separator } from '@/components/ui/separator';
 
 // Nama komponen diubah (opsional)
 const HomePage = () => {
-  const { language } = useLanguage();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { language } = useLanguage();
 
   // Div pembungkus luar dihapus karena layout sudah ada di layout.tsx
   // Header dan Footer juga dihapus dari sini
