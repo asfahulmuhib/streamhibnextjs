@@ -10,6 +10,10 @@ const PricingSection: React.FC = () => {
   // State for managing the current language ('id' or 'en')
   const [language, setLanguage] = useState<'id' | 'en'>('id');
 
+  const toggleLanguage = () => {
+    setLanguage(prevLang => (prevLang === 'id' ? 'en' : 'id'));
+  };
+
   const translations = {
     id: {
       title: 'Mulai Streaming 24/7 Hari Ini',
@@ -122,6 +126,15 @@ const PricingSection: React.FC = () => {
   return (
     <section id="pricing" className="py-16 md:py-24 px-4">
       <div className="max-w-5xl mx-auto text-center">
+        <div className="mb-8">
+          <Button 
+            onClick={toggleLanguage}
+            variant="outline"
+            className="border-streamhib-blue text-streamhib-blue hover:bg-streamhib-blue/10 hover:text-streamhib-blue"
+          >
+            {language === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'}
+          </Button>
+        </div>
         <h2 className="text-3xl md:text-4xl font-bold text-streamhib-blue mb-4">
           {translations[language].title}
         </h2>
