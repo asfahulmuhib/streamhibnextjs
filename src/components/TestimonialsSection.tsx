@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     quote: "Pernah pakai layanan lain, 2 hari mati. Pindah ke StreamHib, lancar!",
-    quoteEn: "I used [competitor] before, it died after 2 days. Switched to StreamHib, and it's smooth!",
+    quoteEn: "I used {\"\"}competitor{\"\"} before, it died after 2 days. Switched to StreamHib, and it\'s smooth!",
     author: "Budi S.",
     channel: "Trenggalek, Jawa Timur",
     image: "/lovable-uploads/budi.jpg"
@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-white to-blue-50/30 backdrop-blur-sm">
               <CardContent className="p-6 relative">
-                <div className="absolute top-2 right-4 text-7xl text-streamhib-red/30 font-serif">"</div>
+               <div className="absolute top-2 right-4 text-7xl text-streamhib-red/30 font-serif">{\'"\'}</div>
                 <p className="text-lg font-bold text-gray-800 mb-6 relative z-10 italic">
                   {language === 'id' ? testimonial.quote : testimonial.quoteEn}
                 </p>
