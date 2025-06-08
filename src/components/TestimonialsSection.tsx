@@ -1,8 +1,9 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useLanguage } from '@/context/LanguageContext';
+
+// The LanguageContext dependency has been removed.
+// The language state is now managed within this component.
 
 const testimonials = [
   {
@@ -14,7 +15,7 @@ const testimonials = [
   },
   {
     quote: "Pernah pakai layanan lain, 2 hari mati. Pindah ke StreamHib, lancar!",
-    quoteEn: "I used {\"\"}competitor{\"\"} before, it died after 2 days. Switched to StreamHib, and it\'s smooth!",
+    quoteEn: "I used a competitor before, it died after 2 days. Switched to StreamHib, and it's smooth!",
     author: "Budi S.",
     channel: "Trenggalek, Jawa Timur",
     image: "/lovable-uploads/budi.jpg"
@@ -29,12 +30,26 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
-  const { language } = useLanguage();
-  
+  // State for managing the current language ('id' or 'en')
+  const [language, setLanguage] = useState('id');
+
+  const toggleLanguage = () => {
+    setLanguage(prevLang => (prevLang === 'id' ? 'en' : 'id'));
+  };
+
   return (
     <section className="py-16 px-4 relative overflow-hidden bg-gradient-to-b from-blue-50/70 to-purple-50/50">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwYTNhNWYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djZoNnYtNmgtNnptNiAwaDF2LTZoLTZ2NmgtMXYtN2g4djd6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
       <div className="max-w-6xl mx-auto text-center relative z-10">
+        <div className="mb-8">
+            <button 
+                onClick={toggleLanguage} 
+                className="bg-streamhib-blue text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-streamhib-blue/90 transition-colors duration-300"
+            >
+                {language === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'}
+            </button>
+        </div>
+
         <h2 className="text-3xl md:text-4xl font-bold text-streamhib-blue mb-4">
           {language === 'id' ? 'Pengguna Sudah Membuktikan' : 'Users Have Proven It'}
         </h2>
@@ -50,7 +65,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-white to-blue-50/30 backdrop-blur-sm">
               <CardContent className="p-6 relative">
-               <div className="absolute top-2 right-4 text-7xl text-streamhib-red/30 font-serif">"</div>
+                <div className="absolute top-2 right-4 text-7xl text-streamhib-red/30 font-serif">{"\""}</div>
                 <p className="text-lg font-bold text-gray-800 mb-6 relative z-10 italic">
                   {language === 'id' ? testimonial.quote : testimonial.quoteEn}
                 </p>
