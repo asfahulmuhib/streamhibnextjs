@@ -1,31 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google"; // <-- Mengganti Geist dengan Inter
 import "./globals.css";
 
 // Impor yang sudah ada dan ditambahkan:
-import QueryProvider from "@/providers/QueryProvider"; // Sesuaikan path jika perlu
+import QueryProvider from "@/providers/QueryProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "next-themes";
-import { TooltipProvider } from "@/components/ui/tooltip"; // <-- Ditambahkan
-import { Toaster } from "@/components/ui/toaster"; // <-- Ditambahkan
-import { Toaster as Sonner } from "@/components/ui/sonner"; // <-- Ditambahkan
-import { LanguageProvider } from "@/context/LanguageContext"; // <-- Ditambahkan
-// Kita akan tangani QueryClientProvider secara terpisah jika diperlukan nanti
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { LanguageProvider } from "@/context/LanguageContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Mengganti font Geist dengan Inter
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-sans", // Menyiapkan CSS Variable untuk font
 });
 
 export const metadata: Metadata = {
   title: "StreamHib - 24/7 YouTube Live Tanpa Komputer",
-  description: "StreamHib bantu kamu live video nonstop, langsung dari server. Tanpa install, tanpa takut mati sendiri. Setting 1x, live terus!",
+  description: "StreamHib bantu kamu live nonstop, langsung dari server. Tanpa install, tanpa takut mati sendiri. Setting 1x, live terus!",
 };
 
 export default function RootLayout({
@@ -35,27 +30,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-	  <QueryProvider>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TooltipProvider> {/* <-- Dibungkus TooltipProvider */}
-            <LanguageProvider> {/* <-- Dibungkus LanguageProvider */}
-              <Header />
-              {children}
-              <Footer />
-              <Toaster /> {/* <-- Toaster dirender di sini */}
-              <Sonner /> {/* <-- Sonner dirender di sini */}
-            </LanguageProvider>
-          </TooltipProvider>
-        </ThemeProvider>
-		 </QueryProvider>
+      {/* Menggunakan variabel font dari Inter */}
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <QueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TooltipProvider>
+              <LanguageProvider>
+                <Header />
+                {children}
+                <Footer />
+                <Toaster />
+                <Sonner />
+              </LanguageProvider>
+            </TooltipProvider>
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );
