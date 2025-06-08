@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  darkMode: "class", // <-- PERBAIKAN DI SINI: hapus kurung siku []
+ // darkMode: "class", // <-- PERBAIKAN DI SINI: hapus kurung siku []
   content: [
     './src/pages/**/*.{ts,tsx}',
     './src/components/**/*.{ts,tsx}',
