@@ -6,7 +6,6 @@ import "./globals.css";
 import QueryProvider from "@/providers/QueryProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -33,12 +32,6 @@ export default function RootLayout({
       {/* Menggunakan variabel font dari Inter */}
       <body className={`${inter.variable} font-sans antialiased`}>
         <QueryProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
             <TooltipProvider>
               <LanguageProvider>
                 <Header />
