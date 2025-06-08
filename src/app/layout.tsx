@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="light">
+    <html lang="en" suppressHydrationWarning>
       {/* Menggunakan variabel font dari Inter */}
       <body className={`${inter.variable} font-sans antialiased`}>
         <QueryProvider>
