@@ -50,7 +50,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-white to-blue-50/30 backdrop-blur-sm">
               <CardContent className="p-6 relative">
-               <div className="absolute top-2 right-4 text-7xl text-streamhib-red/30 font-serif">{\'"\'}</div>
+               <div className="absolute top-2 right-4 text-7xl text-streamhib-red/30 font-serif">"</div>
                 <p className="text-lg font-bold text-gray-800 mb-6 relative z-10 italic">
                   {language === 'id' ? testimonial.quote : testimonial.quoteEn}
                 </p>
