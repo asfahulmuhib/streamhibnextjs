@@ -41,7 +41,6 @@ export default function RootLayout({
                 <Sonner />
               </LanguageProvider>
             </TooltipProvider>
-          </ThemeProvider>
         </QueryProvider>
       </body>
     </html>
