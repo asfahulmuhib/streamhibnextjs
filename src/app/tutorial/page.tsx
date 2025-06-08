@@ -49,15 +49,16 @@ const Tutorial = () => {
               key={index}
               className="p-4 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors duration-200"
             >
-              <a
-                href={tutorial.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xl font-semibold text-streamhib-blue hover:underline flex items-center space-x-3"
-              >
-                <span>🎥</span>
-                <span>{tutorial.title}</span>
-              </a>
+                        <Link href={tutorial.url} passHref legacyBehavior>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl font-semibold text-streamhib-blue hover:underline flex items-center space-x-3"
+            >
+              <span>🎥</span>
+              <span>{tutorial.title}</span>
+            </a>
+          </Link>
             </div>
           ))}
         </div>
