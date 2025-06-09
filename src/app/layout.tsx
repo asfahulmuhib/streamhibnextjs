@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google"; // <-- Mengganti Geist dengan Inter
-import "./globals.css";
+import "@/styles/global.css";
 
 // Impor yang sudah ada dan ditambahkan:
 import QueryProvider from "@/providers/QueryProvider";
