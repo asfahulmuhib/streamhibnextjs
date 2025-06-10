@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 /* ========================================================================== */
-/* BAGIAN 2: Variabel Tema Warna untuk shadcn/ui (Mode Terang & Gelap) */
+/* BAGIAN 2: Definisi Variabel Tema Warna (Mode Terang & Gelap) */
 /* ========================================================================== */
 @layer base {
   :root {
@@ -51,53 +51,28 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 210 40% 98%;
   }
 }
 
+/* ========================================================================== */
+/* BAGIAN 3: Penerapan Style Dasar (METODE BARU YANG LEBIH AMAN) */
+/* ========================================================================== */
 @layer base {
   * {
-    @apply border-border;
+    /* Menggunakan properti CSS langsung, bukan @apply */
+    border-color: hsl(var(--border));
   }
   body {
-    @apply bg-background text-foreground;
+    /* Menggunakan properti CSS langsung, bukan @apply */
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
 
 /* ========================================================================== */
-/* BAGIAN 3: Class Kustom dari Proyek React LAMA ANDA */
+/* BAGIAN 4: Class Kustom dari Proyek React Lama Anda */
 /* ========================================================================== */
-.glass-effect {
-  backdrop-filter: blur(16px);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6));
-  border-bottom: 1px solid rgba(10, 58, 95, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
-}
-
-.hover-lift {
-  transition: transform 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-5px);
-}
-
-.gradient-card {
-  background: linear-gradient(135deg, #f0f4ff 0%, #e0eaff 100%);
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(10, 58, 95, 0.15);
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% { transform: translatey(0px); }
-  50% { transform: translatey(-10px); } /* Mengurangi efek agar lebih halus */
-  100% { transform: translatey(0px); }
-}
-
 .text-gradient {
   background: linear-gradient(90deg, #0A3A5F, #3a7cb8, #ED2024);
   -webkit-background-clip: text;
