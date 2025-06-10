@@ -84,5 +84,3 @@ const config = {
 } satisfies Config;
 
 export default config;
-&lt;br>
-&lt;br>
