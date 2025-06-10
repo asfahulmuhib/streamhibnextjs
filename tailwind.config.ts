@@ -2,11 +2,15 @@ import type { Config } from "tailwindcss";
 
 const config = {
 	darkMode: "class",
+    // ======================================================================
+    // PERUBAHAN KRUSIAL ADA DI SINI: Menargetkan folder 'src'
+    // ======================================================================
 	content: [
-		'./pages/**/*.{js,ts,jsx,tsx,mdx}',
-		'./components/**/*.{js,ts,jsx,tsx,mdx}',
-		'./app/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
+    // ======================================================================
 	prefix: "",
 	theme: {
 		container: {
@@ -66,7 +70,7 @@ const config = {
 				'accordion-down': { from: { height: '0' }, to: { height: 'var(--radix-accordion-content-height)' } },
 				'accordion-up': { from: { height: 'var(--radix-accordion-content-height)' }, to: { height: '0' } },
 				'fade-in': { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-				'pulse-light': { '0%, 100%': { opacity: '0.8' }, '50%': { opacity: '1' } }, // Penyesuaian kecil untuk efek lebih baik
+				'pulse-light': { '0%, 100%': { opacity: '0.8' }, '50%': { opacity: '1' } },
 				'live-dot': { '0%, 100%': { transform: 'scale(1)', opacity: '0.8' }, '50%': { transform: 'scale(1.2)', opacity: '1' } },
 				'shimmer': { '0%': { backgroundPosition: '-500px 0' }, '100%': { backgroundPosition: '500px 0' } }
 			},
